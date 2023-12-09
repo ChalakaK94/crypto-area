@@ -14,7 +14,7 @@ export const  cryptoApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl}),
     endpoints:(builder)=>({
         getCryptos: builder.query({
-            query:()=> createRequest('/coins')
+            query:(count)=> createRequest(`/coins?limit=${count}` )
         })
     })
 })
@@ -23,29 +23,3 @@ export const {
     useGetCryptosQuery,
 } = cryptoApi;
 
-
-// const axios = require('axios');
-//
-// const options = {
-//     method: 'GET',
-//     url: ,
-//     params: {
-//         referenceCurrencyUuid: 'yhjMzLPhuIDl',
-//         timePeriod: '24h',
-//         'tiers[0]': '1',
-//         orderBy: 'marketCap',
-//         orderDirection: 'desc',
-//         limit: '50',
-//         offset: '0'
-//     },
-//     headers: {
-
-//     }
-// };
-//
-// try {
-//     const response = await axios.request(options);
-//     console.log(response.data);
-// } catch (error) {
-//     console.error(error);
-// }

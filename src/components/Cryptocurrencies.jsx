@@ -4,16 +4,18 @@ import {Card, Col, Row} from "antd";
 import {Link} from "react-router-dom";
 import millify from "millify";
 
-export function Cryptocurrencies() {
-    const {data: cryptoList, isFetching} = useGetCryptosQuery();
+export function Cryptocurrencies({simplified}) {
+    const count = simplified ? 10 :100
+
+    const {data: cryptoList, isFetching} = useGetCryptosQuery(count);
 
     const [cryptos, setCryptos] = useState(cryptoList?.data?.coins);
 
-    console.log({cryptos})
+    if (isFetching) return 'Loading...'
     return (
         <>
             <Row gutter={[32,32]} className='crypto-card-container'>
-                {cryptos.map((currency)=>(
+                {cryptos?.map((currency)=>(
                     <Col xs={24} key={currency.uuid} lg={6} className='crypto-card'>
                         <Link to={`/crypto/${currency.uuid}`}>
                             <Card title={`${currency.rank} ${currency.name}`}
