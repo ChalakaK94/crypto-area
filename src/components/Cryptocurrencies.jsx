@@ -33,7 +33,7 @@ export function Cryptocurrencies({simplified}) {
                     <Col xs={24} key={currency.uuid} lg={6} className='crypto-card'>
                         <Link to={`/crypto/${currency.uuid}`}>
                             <Card title={`${currency.rank} ${currency.name}`}
-                                  extra={<img className='crypto-image'  src={currency.iconUrl}/> }
+                                  extra={<img className='crypto-image' alt={currency.name}  src={currency.iconUrl}/> }
                                   hoverable>
                                 <p>Price: {millify(currency.price)}</p>
                                 <p>Market Cap: {millify(currency.marketCap)}</p>
