@@ -1,6 +1,6 @@
 import {Avatar, Button, Menu, Typography} from "antd";
 import {Link} from "react-router-dom";
-import icon from '../images/cryptoImg.png'
+import icon from '../images/download.png'
 import {BulbOutlined, FundOutlined, HomeOutlined, MoneyCollectOutlined} from "@ant-design/icons";
 
 export const Navbar = () => {
